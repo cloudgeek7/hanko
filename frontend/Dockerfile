@@ -22,7 +22,7 @@ RUN npm ci --silent
 COPY ./elements ./
 RUN npm run build
 
-FROM nginx:stable-alpine
+FROM nginx:mainline-alpine
 COPY --from=build /app/elements/dist/elements.js /usr/share/nginx/html
 COPY --from=build /app/frontend-sdk/dist/sdk.* /usr/share/nginx/html
 
